@@ -23,7 +23,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dired-filetype-face dired-open undo-tree recentf-ext google-this shell-pop key-combo key-chord restart-emacs bind-key))))
+    (dired-subtree dired-filetype-face dired-open undo-tree recentf-ext google-this shell-pop key-combo key-chord restart-emacs bind-key))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -58,6 +58,17 @@
 (bind-key* "C-M-n"   'forward-paragraph)
 (bind-key* "C-M-b"   'backward-word)
 (bind-key* "C-M-f"   'forward-word)
+(bind-key* "C-j" 'backward-char)
+(bind-key* "C-M-j" 'backward-word)
+(bind-key* "C-l" 'forward-char)
+(bind-key* "C-M-l" 'forward-word)
+
+(bind-key* "M-0" 'delete-other-windows)
+(bind-key* "C-t"   'other-window)
+(bind-key* "C-a"   'dabbrev-expand)
+(bind-key* "C-M-/"   'undo)
+(bind-key* "C-M-\\"  'redo)
+
 
 ;;
 ;; recentf
@@ -169,6 +180,27 @@
            (global-set-key (kbd "j")   'undo-tree-visualize-switch-branch-left)
            (global-set-key (kbd "l")   'undo-tree-visualize-switch-branch-right)
            ))
+
+;; 
+;; 名前: major-mode, dired
+;;
+(require 'dired)
+(bind-keys :map dired-mode-map
+	   ("j" . dired-subtree-remove)
+           ("l" . dired-subtree-insert)
+	   ("r" . isearch-backward)
+	   ("e" . wdired-change-to-wdired-mode)
+	   ("h" . dired-up-directory)
+	   )
+;; (define-key dired-mode-map (kbd "s") 'isearch-forward)
+;; (define-key dired-mode-map (kbd "r") 'isearch-backward)
+;; (key-chord-define dired-mode-map "nm" 'dired-view-file)
+;; (key-chord-define dired-mode-map "m," 'dired-find-file-other-window)
+;; (key-chord-define-global "jd" 'dired)
+;; (define-key dired-mode-map (kbd "/") 'undo)
+;; (define-key dired-mode-map (kbd "\\") 'redo)
+
+
 
 (require 'dired-open)
 (setq dired-open-extensions
