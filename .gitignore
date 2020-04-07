@@ -1,0 +1,10 @@
+# other files
+recentf
+places
+
+# backup files
+*~
+
+# directory
+auto-save-list/
+eshell/
