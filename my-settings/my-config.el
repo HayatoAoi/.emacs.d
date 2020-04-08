@@ -34,7 +34,7 @@
 (bind-key* "C-l" 'forward-char)
 (bind-key* "C-M-l" 'forward-word)
 
-(bind-key* "M-0" 'delete-other-windows)
+(bind-key* "C-o" 'delete-other-windows)
 (bind-key* "C-t"   'other-window)
 (bind-key* "C-a"   'dabbrev-expand)
 (bind-key* "C-M-/"   'undo)
@@ -212,6 +212,42 @@
 ;; 名前: dired-filetype-face
 ;; 
 (require 'dired-filetype-face)
+
+;; 
+;; 名前:  minor-mode, view-mode
+;; 
+(require 'view)
+(bind-keys :map view-mode-map
+           ("k" . next-line)
+           ("i" . previous-line)
+           ("j" . backward-char)
+           ("l" . forward-char)
+           ("m" . View-scroll-line-forward)
+           ("n" . View-scroll-line-backward)
+           ("h" . backward-word)
+           (";" . forward-word)    
+           ("@" . Set-mark-command)
+           ("SPC" . set-mark-command)
+           ("w" . kill-ring-save)
+           ("." . View-scroll-half-page-forward)
+           ("," . View-scroll-half-page-backward)
+           ("s" . isearch-forward)
+           ("r" . isearch-backward)
+           )
+(key-chord-define-global "nm" 'view-mode)
+
+
+;; (define-key view-mode-map (kbd ";") 'forward-word)
+;; (define-key view-mode-map (kbd "u") 'move-beginning-of-line)
+;; (define-key view-mode-map (kbd "o") 'move-end-of-line)
+;; (define-key view-mode-map (kbd "w") 'kill-ring-save)
+;; (define-key view-mode-map (kbd "[") 'scroll-down)
+;; (define-key view-mode-map (kbd "]") 'scroll-up)
+(require 'viewer)
+(setq viewer-modeline-color-unwritable "tomato")
+(setq viewer-modeline-color-view "orange")
+(viewer-change-modeline-color-setup)
+(setq view-read-only t)
 
 
 (provide 'my-config)
