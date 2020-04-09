@@ -52,7 +52,7 @@
 
 (bind-key* "C-o" 'delete-other-windows)
 (bind-key* "C-t"   'other-window)
-(bind-key* "C-a"   'dabbrev-expand)
+(bind-key* "C-q"   'dabbrev-expand)
 (bind-key* "C-M-/"   'undo)
 (bind-key* "C-M-\\"  'redo)
 
@@ -147,7 +147,6 @@
 (require 'google-this)
 (google-this-mode 1)
 ;; (global-set-key (kbd "C-x g") 'google-this-mode-submap)
-(global-set-key (kbd "C-q") 'google-this)
 (global-set-key (kbd "C-c C-g") 'google-this)
 
 ;; 
@@ -289,6 +288,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 
-
+(require 'my-org-config)
 
 (provide 'my-config)
