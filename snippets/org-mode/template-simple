@@ -1,0 +1,51 @@
+# -*- mode: snippet -*-
+# name: template-simple
+# key: _template_simple_
+# --
+#+TITLE: ${1:title}
+#+DATE:  `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+:SETTINGS: $0
+#+AUTHOR: Hayato Aoi
+#+EMAIL: 1218701@ed.tus.ac.jp
+#+DESCRIPTION: $1
+
+#+CREATOR: Emacs org-mode `(org-version)`
+#+LANGUAGE: ja
+#+SELECT_TAGS:   export
+# #+EXCLUDE_TAGS:  noexport
+# #+BIND: variable value
+
+#+OPTIONS: ':t  *:t  -:t  ::t  <:t  \n:nil  ^:nil 
+#+OPTIONS: arch:nil  author:nil  broken-links:t  creator:nil  d:nil
+#+OPTIONS: date:nil  e:nil  email:nil  f:t  H:3 inline:t num:nil  p:t  
+#+OPTIONS: timestamp:t tasks:t tags:t title:t  toc:nil  todo:t  |:t tex:dvisvgm
+# #+OPTIONS: pri:nil prop:t stat:nil  c:t
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1218701/css/org-common-simple.css">
+# #+INFOJS_OPT: view:showall toc:t tdepth:2 ftoc:nil ltoc:nil mouse:#ffffcc path:http://www.ed.tus.ac.jp/1216602/js/org-info.js
+#+HTML: <div class="clear"></div>
+:END:      
+# #+HTML: <nav>
+#  + HOME
+#  + PROFILE
+#  + ABOUT
+#  + CONTACT
+# #+HTML: </nav>
+
+#+BEGIN_CENTER
+created date {{{date}}}\\\\
+
+Abstract
+#+END_CENTER
+
+#+HTML: <div align="right"><a href="file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.org" class="btn">&gt orgを編集</a></div>
+#+HTML: <p class="pagetop"><a href="#content">▲</a></p>
+#+TOC: headlines 2
+
+* COMMENT MENU
+  [[file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.html]]
+
+* ${2:Overview}
+
+
+

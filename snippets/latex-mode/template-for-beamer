@@ -1,0 +1,386 @@
+# -*- mode: snippet -*-
+# name: template-beamer
+# key: _beamer_
+# --
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% file name: `(file-name-nondirectory (buffer-file-name))`
+%% 作成日時:   `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+%%%%%%%%%%%%%%%%%%%%%%%%
+$0
+\documentclass[
+%uplatex,
+dvipdfmx,
+11pt,
+% professionalfont,
+uplatex,
+% handout,
+]{beamer}
+
+%% color:: R:#bd1919 G:#008000 B:#3333b3
+\definecolor{myred}{HTML}{bd1919}
+\definecolor{mygreen}{HTML}{008000}
+\definecolor{myblue}{HTML}{3333b3}
+\definecolor{myorange}{HTML}{DE940E}
+
+%% theme, navi, header, footer
+\usetheme{CambridgeUS}
+% \usetheme{metropolis}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{items}[default]
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}[frame number]
+
+%% theme
+%\usetheme{Luebeck}
+%% color theme
+% \usecolortheme{orchid}
+%% font theme
+\usefonttheme{professionalfonts}
+%% Inner theme
+% \useinnertheme{circles}
+%% outertheme
+%\useoutertheme{infolines}
+
+%% structure, alert, example
+\setbeamercolor*{structure}{bg=white,fg=myblue}
+
+
+%% frame title
+%% \href{https://joerglenhard.wordpress.com/2011/08/01/beamer-customization-colors/}{Beamer customization I: colors and \setbeamercolor – Dr. Jörg Lenhard}
+\setbeamerfont{frametitle}{size=\large, series=\bfseries} %% \tiny, \large, \Large
+% logo
+
+\definecolor{Myframecolor}{RGB}{220,230,240}
+\setbeamercolor{frametitle}{fg=myblue, bg=Myframecolor}
+% \setbeamercolor{block title}{bg=Myframecolor}
+
+
+%% background
+\definecolor{Mybackgroundcolor}{RGB}{255,255,255}
+\setbeamercolor{background canvas}{bg=Mybackgroundcolor}
+
+%% blocks
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+%% alert
+\setbeamercolor{block title alerted}{bg=white, fg=myred}
+\setbeamercolor{block body alerted}{bg=white, fg=black}
+  
+%% grid
+% \setbeamertemplate{background}[grid][step=2mm]
+
+%% margin
+%\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+%% caption
+\renewcommand{\figurename}{Fig}
+\setbeamertemplate{caption}[nonumbered]
+\renewcommand{\figurename}{~}
+
+%% フォントの設定
+\usepackage{minijs}        %jsarticleのミニ版
+\usepackage[deluxe]{otf}
+\usepackage[T1]{fontenc}
+%% ゴシック
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\renewcommand{\familydefault}{\sfdefault}
+%% ローマン
+% \renewcommand{\kanjifamilydefault}{\mcdefault}
+% \renewcommand{\familydefault}{\rmdefault}
+
+\usepackage{physics}     %% 物理・数学のための数式
+\usepackage{mathtools}     %% 物理・数学のためのツール
+\usepackage{graphicx}    %% グラフの挿入
+\usepackage{ascmac}    %% 
+\usepackage{color}
+\usepackage{animate}
+\usepackage{xmpmulti}
+\usepackage{tcolorbox}
+\usepackage{fancybox}
+
+%% Feynman diagram
+\usepackage{tikz-feynman}
+
+%% absolute  coordinate
+\usepackage[absolute,overlay]{textpos}
+
+%% セクション, サブセクション名の挿入コマンド
+\providecommand{\insertsection}{}
+\providecommand{\insertsubsection}{}
+
+%% Feynman slash
+\newcommand{\Slash}[1]{{\ooalign{\hfil/\hfil\crcr$#1$}}}
+
+%% 数式に節番号を付加する
+\makeatletter
+\renewcommand{\theequation}{%
+  \thesection.\arabic{equation}}
+\@addtoreset{equation}{section}
+\makeatother
+
+%% 相互参照としおり
+\usepackage{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+  bookmarksnumbered=true,
+  bookmarksopen=true,
+  pdfborder={0 0 0},
+}
+
+%% タイトル, 作者, 年月日
+\title{${1:title}}
+\author{Hayato Aoi}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[noframenumbering] \frametitle{}
+  \titlepage
+\end{frame}
+
+\section{Introduction}
+\label{sec:intro}
+
+\begin{frame}[noframenumbering]
+  \center\huge\insertsection
+\end{frame}
+
+\subsection{Background}
+\label{sec:background}
+
+\begin{frame}\frametitle{\insertsubsection ~~-研究の背景-}
+  自分の専門分野の研究の背景を示す.
+  \begin{itemize}
+  \item 一般的に知られていること(実験・観測事実, 現象など)
+  \item その研究の意義・動機
+  \item その研究の歴史・現在の状況
+  \end{itemize}
+
+  \begin{exampleblock}{ポイント}
+    \begin{itemize}
+    \item 正確に伝えることと蓋然的に伝えることのバランスを取る
+    \item 実験・観測・理論・シミュレーションなどの観点から多角的に示す
+    \item 絵や図を多く使うと見栄えが良くなる
+    \end{itemize}
+  \end{exampleblock}
+  
+  
+\end{frame}
+
+\subsection{Previous work}
+\label{sec:previous work}
+
+\begin{frame}\frametitle{\insertsubsection ~~ -先行研究-}
+  今までにどのようなアプローチで研究がなされてきたかを紹介する. 
+  \begin{itemize}
+  \item 先行研究の成功している点と不十分な点を指摘する
+  \item 手法, 問題設定, 近似方法, 結果などを提示する
+  \end{itemize}
+
+  \begin{exampleblock}{ポイント}
+    \begin{itemize}
+    \item References をきちんと引くこと(ここに限った話ではないが)
+    \item 余裕があれば複数の先行研究を紹介する
+    \item 先の「研究の背景」と併せて, 問題意識をはっきりと提示する
+    \end{itemize}
+  \end{exampleblock}
+
+\end{frame}
+
+\subsection{Purposes}
+\label{sec:purposes}
+
+
+\begin{frame}\frametitle{\insertsubsection}
+    自分の研究の目的を述べる.
+    \begin{itemize}
+    \item 自分の立ち位置(注目する対象, 用いる手法など)をはっきりさせる
+    \item 研究対象についてどこまで明らかにするのかをはっきりさせる    
+    \item 余裕があれば, 予想される結果についても述べる
+    \end{itemize}  
+
+   \begin{block}{研究の目的}
+     ○○(手法)を用いて, ××(研究対象)の△△(注目する性質)を明らかにする.
+     □□という結果が予想(期待)される.
+   \end{block}
+      
+\end{frame}
+
+\section{Methods}
+\label{sec:methods}
+
+\begin{frame}[noframenumbering]
+  \center\huge\insertsection
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}
+  研究に用いる手法・定式化について論理的に明快に述べる
+  \begin{description}
+  \item[仮定] 前提となる仮定や問題設定は必ず述べる.
+  \item[近似] どのような近似をどこで行ったのかをはっきり示す.
+  \item[類推] 何から類推して, どのような操作を行ったのかを示す.
+  \item[例示] 余裕があれば具体的な例を示す.
+  \end{description}
+ 
+  \begin{exampleblock}{ポイント}
+    \begin{itemize}
+    \item 数式は本質的なものを抽出し, 最小限にする
+    \item 1つのトピックはできるだけ1枚のスライドに収める
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+
+\section{Results}
+\label{sec:results}
+
+\begin{frame}[noframenumbering]
+  \center\huge\insertsection
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}
+  結果を図表を用いて示す.
+
+    \begin{itemize}
+    \item 図表は相当分かりやすいものでない限り多く載せすぎない \\
+      (せいぜい1, 2枚程度にしておく).
+    \item 図の軸は最低限見える大きさにして, 必ず口頭でも説明する.
+    \item 特に重要な点は文章で補足する.
+    \item 図を見てすぐに分かることは文章で書かなくてもよい.
+    \end{itemize}
+
+    \begin{exampleblock}{ポイント}
+      \begin{itemize}
+      \item 場合によっては 結果に対する Discussion をここで同時に行う.
+      \end{itemize}
+    \end{exampleblock}
+
+  % \begin{figure}[H]
+  %   \centering
+  %   \includegraphics[options]{figures/path.pdf}
+  %   \caption{\label{fig:label} }
+  % \end{figure}
+
+\end{frame}
+
+\section{Discussion}
+\label{sec:discussion}
+
+\begin{frame}[noframenumbering]
+  \center\huge\insertsection
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}
+  得られた結果について議論を行う.
+  \begin{itemize}
+  \item 仮定や近似方法を踏まえて, 結果の妥当性を議論する.
+  \item 先行研究との比較・評価を行う. 実験・観測・理論・シミュレーションの全て観点から行うことができればベスト.
+  \item 別の物理現象で同じような結果が得られていないか, その関連を吟味する.
+  \item この先どのような研究が必要とされるかについて述べる \\
+    (Outlooks で述べてもよい).
+  \end{itemize}
+\end{frame}
+
+
+\section{Summary}
+\label{sec:summary}
+
+\begin{frame}[noframenumbering]
+  \center\huge\insertsection
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}
+  結論を含めたまとめを行う.
+  \begin{itemize}
+  \item 研究の目的, 手法, 結果, 議論, 結論を端的にまとめ, このスライドのみで完結しているようにする (論文の Abstract のように書く).
+  \item Conclusion としてもよい.
+  \item 得られた結果の意義, 研究の位置付けなどを強調してもよい.
+  \end{itemize}
+
+  \begin{block}{まとめ}
+    ○○(手法)を用いて, ××(研究対象)の△△(注目する性質)について調べた.
+    その結果, □□ が新たに明らかになった.
+    これは, $\cdots$という意義がある.
+   \end{block}
+  
+\end{frame}
+
+\section{Outlooks}
+\label{sec:outlooks}
+
+\begin{frame}[noframenumbering]
+  \center\huge\insertsection
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}
+  今後の研究の見通しについて述べる.
+  \begin{itemize}
+  \item 同じ手法で別の対象を見る.
+  \item 別の手法で同じ対象を見る.
+  \item 用いた手法についてより緻密に吟味する (問題設定, 近似法など).
+  \end{itemize}
+\end{frame}
+
+\appendix
+
+\begin{frame}[noframenumbering]
+  \center\huge Appendices
+\end{frame}
+
+\section{Introduction (Appendix)}
+\label{sec:intro-appendix}
+
+\begin{frame}[noframenumbering]\frametitle{\insertsection}
+  導入の補足をする.
+  \begin{itemize}
+  \item 研究の背景の補足. (より正確, より広範に述べる)
+  \item 関連する別の先行研究の紹介.
+  \end{itemize}
+\end{frame}
+
+\section{Methods (Appendix)}
+\label{sec:methods-appendix}
+
+\begin{frame}[noframenumbering]\frametitle{\insertsection}
+  手法の補足.
+  \begin{itemize}
+  \item 細かい計算過程.
+  \item 類推した事柄の説明.
+  \item 例示.
+  \end{itemize}
+\end{frame}
+
+\section{Results (Appendix)}
+\label{sec:results-appendix}
+
+\begin{frame}[noframenumbering]\frametitle{\insertsection}
+  結果の補足.
+  \begin{itemize}
+  \item 本スライドで示した結果の補足.
+  \item 別の結果の提示.
+  \end{itemize}
+\end{frame}
+
+\section{Discussion (Appendix)}
+\label{sec:discuss-appendix}
+
+\begin{frame}[noframenumbering]\frametitle{\insertsection}
+  議論の補足.
+  \begin{itemize}
+  \item 別アプローチの議論.
+  \item 別の結果に対する議論.
+  \end{itemize}
+\end{frame}
+
+\section{Bibliography}
+\label{sec:bib}
+
+\begin{frame}[noframenumbering]\frametitle{\insertsection}
+  参考文献のリスト.
+\end{frame}
+
+\end{document}
+
+\begin{frame}\frametitle{\insertsection}
+  空のスライド
+\end{frame}

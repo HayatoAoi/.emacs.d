@@ -1,0 +1,67 @@
+# -*- mode: snippet -*-
+# name: template_dokusyu_C
+# key: tdc_
+# --
+#+TITLE: 独習C ${1:#}章 `(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`
+#+INDEX: 独習C $1章 `(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`
+#+DESCRIPTION: 独習C $1章 `(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`
+#+DATE:  `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+:SETTINGS: 
+#+DRAWERS: SETTINGS
+#+AUTHOR: Hayato Aoi
+#+EMAIL: 1216602@ed.tus.ac.jp
+
+#+CREATOR: Emacs 25.1.1 (org-mode 8.2.10)
+#+LANGUAGE: ja
+#+SELECT_TAGS:   export
+# #+EXCLUDE_TAGS:  noexport
+# #+BIND: variable value
+
+#+OPTIONS: ':t  *:t  -:t  ::t  <:t  \n:nil  ^:nil 
+#+OPTIONS: arch:nil  author:nil  broken-links:t  creator:nil  d:nil
+#+OPTIONS: date:nil  e:nil  email:nil  f:t  H:3 inline:t num:nil  p:t  
+#+OPTIONS: timestamp:t tasks:t tags:t title:t  toc:nil  todo:t  |:t tex:dvisvgm
+# #+OPTIONS: pri:nil prop:t stat:nil  c:t
+
+# #+ARCHIVE:
+# #+CATEGORY:
+# #+COLUMNS:
+# #+CONSTANTS:
+#+LINK: dokusyuC-home file:/home/hayato/Dropbox/doc/Numerical_methods/C/dokusyu_C/
+# #+PRIORITIES:
+# #+PROPERTY:
+# #+SETUPFILE: filename
+# #+STARTUP:
+# #+TAGS:
+# #+TBLFM:
+# #+TODO:
+
+# #+HTML_DOCTYPE: HTML5
+# #+HTML_CONTAINER:
+# #+HTML_LINK_HOME:
+# #+HTML_MATHJAX:
+# #+KEYWORDS:
+# #+LATEX_HEADER:
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/simple.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-toc-right.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-toc-float.css">
+# #+INFOJS_OPT: view:showall toc:t tdepth:2 ftoc:nil ltoc:nil mouse:#ffffcc path:http://www.ed.tus.ac.jp/1216602/js/org-info.js
+#+HTML: <div class="clear"></div>
+:END:      
+  #+HTML: <a href="file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.org">このページのorg</a>
+  + [[dokusyuC-home:thehome-dokusyuC.org][HOME]]
+  + [[dokusyuC-home:chap$1/.org][PREV]
+  + [[dokusyuC-home:chap$1/.org][NEXT]
+  + [[dokusyuC-home:chap$1/chap$1-home.org][UP]]
+
+* COMMENT MENU
+  [[file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.html]]
+
+* `(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.c
+  $0  
+  #+INCLUDE: "~/Dropbox/doc/Numerical_methods/C/dokusyu_C/chap$1/`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.c" src c :lines "1-"
+
+* 関連プログラム
+  +
+  

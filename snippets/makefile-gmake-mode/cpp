@@ -1,0 +1,39 @@
+# -*- mode: snippet -*-
+# name: cpp
+# key: cpp_
+# --
+### Makefile for C++ programs
+## program files and object files
+PROGRAMS = ${1}
+
+#OBJS = 
+
+## Re-definition of defined macros
+CC = g++
+CFLAGS = -Wall -O2
+
+## サフィックスルール適用対象の拡張子の定義
+#.SUFFIXES: .c .o
+
+## all
+.PHONY: all
+all: $(PROGRAMS)
+
+## プライマリターゲット
+%: %.cpp
+	$(CC) $(CFLAGS) -o $@ $< -lm
+
+
+# ヘッダファイルの依存関係
+#main.o: str.h
+
+
+## サフィックスルール
+#.c.o:
+#	$(CC) $(CFLAGS) -c $< -lm
+
+# ファイル削除用ターゲット
+.PHONY: clean
+clean:
+	$(RM) $(PROGRAMS) *~
+	

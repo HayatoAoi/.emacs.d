@@ -17,7 +17,23 @@
 ;;
 (save-place-mode 1)  
 
+;; 
+;; auto insert
+;; 
+(auto-insert-mode)
+(setq auto-insert-directory "~/.emacs.d/insert/")
+(define-auto-insert "\\.c$" "c-template.c")
+(define-auto-insert "\\.cu$" "cuda-template.c")
+(define-auto-insert "\\.cpp$" "c++-template.cpp")
+(define-auto-insert "\\makefile$" "template.makefile")
+(define-auto-insert "\\.tex$" "tex-template.tex")
+(define-auto-insert "\\.org$" "org-template.org")
 
+
+
+;;
+;; bind-key
+;; 
 
 (require 'bind-key)
 
@@ -155,63 +171,7 @@
 ;; 
 ;; 名前: major-mode, dired
 ;;
-(require 'dired)
-(bind-keys :map dired-mode-map
-	   ("j" . dired-subtree-remove)
-           ("l" . dired-subtree-insert)
-	   ("r" . isearch-backward)
-	   ("e" . wdired-change-to-wdired-mode)
-	   ("h" . dired-up-directory)
-	   ("m" . dired-find-file)
-	   ("u" . dired-mark)
-           ("o" . dired-unmark)
-	   )
-;; (define-key dired-mode-map (kbd "s") 'isearch-forward)
-;; (define-key dired-mode-map (kbd "r") 'isearch-backward)
-;; (key-chord-define dired-mode-map "nm" 'dired-view-file)
-;; (key-chord-define dired-mode-map "m," 'dired-find-file-other-window)
-;; (key-chord-define-global "jd" 'dired)
-;; (define-key dired-mode-map (kbd "/") 'undo)
-;; (define-key dired-mode-map (kbd "\\") 'redo)
-
-
-
-(require 'dired-open)
-(setq dired-open-extensions
-      '(("exe" . "wine") ("docx" . "libreoffice")
-        ("doc" . "libreoffice") ("xlsx" . "libreoffice")
-        ("xls" . "libreoffice")
-        ("mp3" . "mpv")
-        ("mp4" . "mpv")
-        ("flv" . "mpv")
-        ("pdf" . "llpp")
-	("md" . "firefox")
-	("nb" . "mathematica")
-        ("htm" . "eww")
-	("png" . "ristretto")
-	("jpg" . "ristretto")
-	("eps" . "evince")
-        ))
-
-(when (equal system-name "localhost.localdomain")
-  (setq dired-open-extensions
-	'(("exe" . "wine") ("docx" . "libreoffice")
-	  ("doc" . "libreoffice") ("xlsx" . "libreoffice")
-	  ("xls" . "libreoffice")
-	  ("mp3" . "mpv")
-	  ("mp4" . "mpv")
-	  ("flv" . "mpv")
-	  ("pdf" . "llpp")
-	  ("htm" . "eww")
-	  ("png" . "ristretto")
-	  ("jpg" . "ristretto")
-	  )))
-
-
-;; 
-;; 名前: dired-filetype-face
-;; 
-(require 'dired-filetype-face)
+(require 'my-dired-config)
 
 ;; 
 ;; 名前:  minor-mode, view-mode
@@ -248,6 +208,87 @@
 (setq viewer-modeline-color-view "orange")
 (viewer-change-modeline-color-setup)
 (setq view-read-only t)
+
+
+;; 
+;; elscreen
+;; 
+;;; プレフィクスキーはC-z
+(setq elscreen-prefix-key (kbd "C-z"))
+(elscreen-start)
+;;; タブの先頭に[X]を表示しない
+(setq elscreen-tab-display-kill-screen nil)
+;;; header-lineの先頭に[<->]を表示しない
+(setq elscreen-tab-display-control nil)
+;;; バッファ名・モード名からタブに表示させる内容を決定する(デフォルト設定)
+(setq elscreen-buffer-to-nickname-alist
+      '(("^dired-mode$" .
+         (lambda ()
+           (format "Dired(%s)" dired-directory)))
+        ("^Info-mode$" .
+         (lambda ()
+           (format "Info(%s)" (file-name-nondirectory Info-current-file))))
+        ("^mew-draft-mode$" .
+         (lambda ()
+           (format "Mew(%s)" (buffer-name (current-buffer)))))
+        ("^mew-" . "Mew")
+        ("^irchat-" . "IRChat")
+        ("^liece-" . "Liece")
+        ("^lookup-" . "Lookup")))
+(setq elscreen-mode-to-nickname-alist
+      '(("[Ss]hell" . "shell")
+        ("compilation" . "compile")
+        ("-telnet" . "telnet")
+        ("dict" . "OnlineDict")
+        ("*WL:Message*" . "Wanderlust")))
+
+(bind-key* "C-9" 'elscreen-previous)
+(bind-key* "C-0" 'elscreen-next)
+(bind-key* "C-8" 'elscreen-kill)
+(bind-key* "C-;" 'elscreen-create)
+
+
+
+;; 
+;; 名前: major-mode, C
+;; 
+(key-combo-define-global (kbd "C-<f1>") '("printf(\"`!!'\");" "scanf(`!!');" ))
+(key-combo-define-global (kbd "C-<f2>") '("for(`!!';;){\n\t\n\t}" "while(`!!'){\n\t\n\t}" "do {\n\t`!!'\n\t} while ()"))
+(key-combo-define-global (kbd "C-<f3>") '("#include <`!!'.h>" "#include <stdio.h>" "#include <stdlib.h>" "#include <math.h>" ))
+(key-chord-define-global "/:"     '"/*")
+(c-mode)
+
+(defun my-shell-command-for-c ()
+  (interactive)
+  (let ((filename
+         (file-name-sans-extension
+          (buffer-file-name))))
+    (shell-command filename))
+  )
+
+(defun my-compile ()
+  (interactive)
+    (compile "make -k")
+  )
+
+(bind-key "C-c p"     'my-compile c-mode-map)
+(bind-key "C-c p"     'my-compile c++-mode-map)
+(bind-key "C-c p"     'my-compile )
+(bind-key "C-c x"     'shell-command )
+(bind-key "C-c x"     'my-shell-command-for-c c++-mode-map)
+;; (define-key c-mode-map (kbd "C-c p") 'my-compile)
+;; (define-key c-mode-map (kbd "C-c x") 'my-shell-command-for-c)
+
+;; 
+(defun getfilename ()
+  (interactive)
+  (insert
+   (file-name-nondirectory
+    (file-name-sans-extension
+     (buffer-file-name)))))
+
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+
 
 
 (provide 'my-config)

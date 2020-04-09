@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: doxy_note
+# key: doxy_note
+# --
+/*! 
+ *  @brief   ${1:description}
+ *
+ *  $0
+ *
+ *  @remarks     remarks
+ *  @attention   attention
+ *  @warning     warning
+ *  @bug         bug
+ *  @note        note
+ *  @todo        todo
+ */

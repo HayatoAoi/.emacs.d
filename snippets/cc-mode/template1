@@ -1,0 +1,29 @@
+# -*- mode: snippet -*-
+# name: template1
+# key: tc1_
+# --
+// file:`(file-name-nondirectory (buffer-file-name))`
+// file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.org
+// file:makefile
+
+/*!
+ *  @file    `(file-name-nondirectory (buffer-file-name))`
+ *  @brief   ${1:description}
+ *  
+ *  
+ *
+ *  @author     Hayato Aoi
+ *  @date       `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+ *  @version    1.0
+ *  @copyright  --
+ *  
+ */
+
+#include <stdio.h>
+
+int main(${1:int argc, char *argv[]}){
+
+    $0
+
+    return 0;
+}

@@ -1,0 +1,14 @@
+# keyword                                    # name
+# ###################################################
+# ttex_               template-for-TeX                        
+# tcuda_              template_for_cuda                       
+# tcudap_             template_for_cuda_professional          
+# tlog_               template-for-daily                      
+# tdc_                template_dokusyu_C                      
+# tdcp_               template_dokusyu_Cpp                    
+# te_                 template-for-emacs                      
+# tstl_               template-for-stl-programming-from-th... 
+# t01_                template01                              
+# t02_                template02                              
+# _template_simple_   template-simple                         
+# _template_bigblow_  template-bigblow                        

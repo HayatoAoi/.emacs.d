@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: doxy_class
+# key: dc_
+# --
+/*! ${1:@class}
+ *  @brief   ${2:description}
+ *
+ *  $0
+ *
+ *  @sa              sa_list
+ */

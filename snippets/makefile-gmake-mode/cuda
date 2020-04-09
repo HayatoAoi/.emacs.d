@@ -1,0 +1,36 @@
+# -*- mode: snippet -*-
+# name: cuda
+# key: cuda_
+# --
+## makefile for CUDA C
+PROGRAMS =
+
+## Compiler
+CC = nvcc
+# CC = /opt/cuda/bin/nvcc  # Full-path(Arch Linux)
+
+## Compile options
+CFLAGS =
+
+## Architecture
+ARCH = -arch=sm_20
+
+
+
+## The definitions of extentions adapted suffix rules
+.SUFFIXES: .cu .ptx 
+
+## Target for all programs
+.PHONY: all
+all: $(PROGRAMS)
+
+## Primary Target
+%: %.cu
+	$(CC) $(CFLAGS) $(ARCH) -o $@ $<
+
+
+
+## Target for removing files
+.PHONY: clean
+clean:
+        $(RM) $(PROGRAMS) *~

@@ -1,0 +1,63 @@
+# -*- mode: snippet -*-
+# name: template-for-emacs
+# key: te_
+# --
+#+TITLE: ${1:title}
+#+INDEX: $1
+#+DATE:  `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+:SETTINGS:
+#+DRAWERS: SETTINGS
+#+AUTHOR: Hayato Aoi
+#+EMAIL: 1216602@ed.tus.ac.jp
+#+DESCRIPTION: ${2:description}
+
+#+CREATOR: Emacs 25.1.1 (org-mode 8.2.10)
+#+LANGUAGE: ja
+#+SELECT_TAGS:   export
+# #+EXCLUDE_TAGS:  noexport
+# #+BIND: variable value
+
+#+OPTIONS: ':t  *:t  -:t  ::t  <:t  \n:nil  ^:nil 
+#+OPTIONS: arch:nil  author:nil  broken-links:t  creator:nil  d:nil
+#+OPTIONS: date:nil  e:nil  email:nil  f:t  H:3 inline:t num:nil  p:t  
+#+OPTIONS: timestamp:t tasks:t tags:t title:t  toc:nil  todo:t  |:t tex:dvisvgm
+# #+OPTIONS: pri:nil prop:t stat:nil  c:t
+
+# #+ARCHIVE:
+# #+CATEGORY:
+# #+COLUMNS:
+# #+CONSTANTS:
+#+LINK: emacs-home file:/home/hayato/Dropbox/doc/tools/emacs/
+# #+PRIORITIES:
+# #+PROPERTY:
+# #+SETUPFILE: filename
+# #+STARTUP:
+# #+TAGS:
+# #+TBLFM:
+# #+TODO:
+
+# #+HTML_DOCTYPE: HTML5
+# #+HTML_CONTAINER:
+# #+HTML_LINK_HOME:
+# #+HTML_MATHJAX:
+# #+KEYWORDS:
+# #+LATEX_HEADER:
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-common.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-toc-right.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-toc-float.css">
+#+INFOJS_OPT: view:showall toc:nil tdepth:2 ftoc:nil ltoc:nil mouse:#ffffcc path:http://www.ed.tus.ac.jp/1216602/js/org-info.js
+#+HTML: <div class="clear"></div>
+:END:      
+  + [[emacs-home:thehome-emacs.org][HOME]]
+  + [[emacs-home:theindex.org][INDEX]]
+  + [[emacs-home:thesitemap-emacs.org][SITEMAP]]
+#+HTML: <a href="file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.org">このページのorg</a>
+  
+* COMMENT MENU
+  [[file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.html]]
+
+* ${3:Overview}
+  $0
+
+#+TOC:headlines 3

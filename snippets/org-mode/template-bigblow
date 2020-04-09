@@ -1,0 +1,55 @@
+# -*- mode: snippet -*-
+# name: template-bigblow
+# key: _template_bigblow_
+# --
+#+TITLE: ${1:title}
+#+DATE:  `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+:SETTINGS: $0
+#+AUTHOR: Hayato Aoi
+#+EMAIL: 1218701@ed.tus.ac.jp
+#+DESCRIPTION: $1
+
+#+CREATOR: Emacs org-mode `(org-version)`
+#+LANGUAGE: ja
+#+SELECT_TAGS:   export
+# #+EXCLUDE_TAGS:  noexport
+# #+BIND: variable value
+
+#+OPTIONS: ':t  *:t  -:t  ::t  <:t  \n:nil  ^:nil 
+#+OPTIONS: arch:nil  author:nil  broken-links:t  creator:nil  d:nil
+#+OPTIONS: date:nil  e:nil  email:nil  f:t  H:3 inline:t num:nil  p:t  
+#+OPTIONS: timestamp:t tasks:t tags:t title:t  toc:nil  todo:t  |:t tex:dvisvgm
+# #+OPTIONS: pri:nil prop:t stat:nil  c:t
+
+#+HTML: <div class="clear"></div>
+:END:      
+:BIGBLOW:
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/bigblow.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+:END:
+#+BEGIN_CENTER
+{{{date}}}\\\\
+
+Abstract
+#+END_CENTER
+
+#+HTML: <div align="right"><a href="file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.org" class="btn">&gt orgを編集</a></div>
+
+* COMMENT MENU
+  [[file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.html]]
+
+* ${2:Overview}
+
+
+

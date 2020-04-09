@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: author
+# key: author_
+# --
+#+AUTHOR: Hayato Aoi
+$0

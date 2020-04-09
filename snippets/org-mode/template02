@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: template02
+# key: t02_
+# --
+#+TITLE: ${1:title}
+#+INDEX: $1
+#+DESCRIPTION: ${2:description}
+#+DATE:  `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+
+# #+SETUPFILE: filename
+#+INCLUDE: "${3:../include/settings_01.inc}"
+#+BEGIN_HTML
+<a href="file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.org">このページのorg</a>
+#+END_HTML
+
+# #+OPTIONS: num:nil toc:t
+
+* COMMENT MENU
+  [[file:~/Dropbox/doc/test/thehome.org][HOME]]  [[file:~/Dropbox/doc/test/theindex.inc][INDEX]]  [[file:~/Dropbox/doc/test/thesitemap.org][SITEMAP]]  [[file:~/Dropbox/doc/test/thehistory.org][HISTORY]]  [[file:~/Dropbox/doc/test/thelinks.org][LINKS]]  [[file:~/Dropbox/doc/test/thesettings.org][SETTINGS]]  [[file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.html]]
+
+* Overview
+  $0

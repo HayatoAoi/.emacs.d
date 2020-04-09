@@ -1,0 +1,43 @@
+# -*- mode: snippet -*-
+# name: graph
+# key: graph_
+# --
+# gnuplot を使ってデータファイルからグラフを描画するMakefile 
+# 
+
+# グラフ名
+FILENAMES = ${1:graph-name.pdf}
+
+# スクリプトファイルの拡張子(gnuplot, plt...)
+SCRIPT_TYPE= ${2:gnuplot}
+
+# ドロワーとオプションの設定
+# my_gnuplot.sh 
+DRAWER = my_gnuplot.sh
+
+# サフィックスルール適用対象の拡張子の定義
+.SUFFIXES: .png .pdf .gnuplot .dat 
+
+# all
+.PHONY: all
+all: $(FILENAMES)
+
+# プライマリターゲット
+# 画像ファイル名: 設定ファイル名(画像ファイルにつき一つ) データファイル名(複数可)
+
+%.png: %.$(SCRIPT_TYPE) %.dat
+        $(DRAWER) $@ $<
+
+%.pdf: %.$(SCRIPT_TYPE) %.dat
+        $(DRAWER) $@ $<
+
+%.jpeg: %.$(SCRIPT_TYPE) %.dat
+        $(DRAWER) $@ $<
+
+%.eps: %.$(SCRIPT_TYPE) %.dat
+        $(DRAWER) $@ $<
+
+# ファイル削除用ターゲット
+.PHONY: clean
+clean:
+        $(RM) $(FILENAMES) *~

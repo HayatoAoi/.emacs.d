@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: template2
+# key: tcp2_
+# --
+/**************************************************************************
+ *  @file    `(file-name-nondirectory (buffer-file-name))`
+ *  @brief   ${1:description}
+ *  
+ *  
+ *
+ *  @author     Hayato Aoi
+ *  @date       `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+ *  @version    --
+ *  @copyright  --
+ *  
+ ***************************************************************************/
+
+#include <iostream>
+using namespace std;
+$0
+int main(${2:int argc, char *argv[]}){
+
+
+
+    return 0;
+}

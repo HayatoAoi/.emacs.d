@@ -1,0 +1,62 @@
+# -*- mode: snippet -*-
+# name: template_for_cuda
+# key: tcuda_
+# --
+#+TITLE: CUDA samples `(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`
+#+INDEX: CUDA samples `(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`
+#+DATE:  `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+:SETTINGS: 
+#+DRAWERS: SETTINGS
+#+AUTHOR: Hayato Aoi
+#+EMAIL: 1216602@ed.tus.ac.jp
+#+DESCRIPTION: CUDA samples `(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`
+
+#+CREATOR: Emacs 25.1.1 (org-mode 8.2.10)
+#+LANGUAGE: ja
+#+SELECT_TAGS:   export
+# #+EXCLUDE_TAGS:  noexport
+# #+BIND: variable value
+
+#+OPTIONS: ':t  *:t  -:t  ::t  <:t  \n:nil  ^:nil 
+#+OPTIONS: arch:nil  author:nil  broken-links:t  creator:nil  d:nil
+#+OPTIONS: date:nil  e:nil  email:nil  f:t  H:3 inline:t num:nil  p:t  
+#+OPTIONS: timestamp:t tasks:t tags:t title:t  toc:nil  todo:t  |:t tex:dvisvgm
+# #+OPTIONS: pri:nil prop:t stat:nil  c:t
+
+# #+ARCHIVE:
+# #+CATEGORY:
+# #+COLUMNS:
+# #+CONSTANTS:
+#+LINK: cuda-home file:/home/hayato/cuda_samples/
+# #+PRIORITIES:
+# #+PROPERTY:
+# #+SETUPFILE: filename
+# #+STARTUP:
+# #+TAGS:
+# #+TBLFM:
+# #+TODO:
+
+# #+HTML_DOCTYPE: HTML5
+# #+HTML_CONTAINER:
+# #+HTML_LINK_HOME:
+# #+HTML_MATHJAX:
+# #+KEYWORDS:
+# #+LATEX_HEADER:
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="file:/css/cuda_samples.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-toc-right.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-toc-float.css">
+#+INFOJS_OPT: view:showall toc:nil tdepth:2 ftoc:nil ltoc:nil mouse:#ffffcc path:http://www.ed.tus.ac.jp/1216602/js/org-info.js
+#+HTML: <div class="clear"></div>
+:END:      
+  #+HTML: <a href="file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.org">このページのorg</a>
+  + [[cuda-home:thehome_cuda_samples.org][HOME]
+  + [[cuda-home:chap$1/chap$1-home.org][UP]
+
+* COMMENT MENU
+  [[file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.html]]
+
+* `(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.cu
+  $0  
+  #+INCLUDE: "`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.cu" src c :lines "1-"
+

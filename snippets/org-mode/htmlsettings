@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: htmlsettings
+# key: hset_
+# --
+#+DESCRIPTION:
+#+HTML_DOCTYPE:
+#+HTML_CONTAINER:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+KEYWORDS:
+#+LATEX_HEADER:
+#+SUBTITLE:

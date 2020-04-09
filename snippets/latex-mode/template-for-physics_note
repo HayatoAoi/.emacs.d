@@ -1,0 +1,138 @@
+# -*- mode: snippet -*-
+# name: physics_note
+# key: _physics_
+# --
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% file name: `(file-name-nondirectory (buffer-file-name))`
+%% 作成日時:   `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+%%%%%%%%%%%%%%%%%%%%%%%%
+$0
+\documentclass[12pt,
+dvipdfmx,
+uplatex,
+%landscape,
+]{jsarticle}
+
+%% フォントの設定
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{otf}
+
+%% 数式関連
+\usepackage[cmintegrals]{newtxmath}
+\usepackage{mathtools}
+
+%% 図表関連
+\usepackage{graphicx, color}
+\usepackage{float}      %% figure float
+\usepackage{subcaption} %% figure subcaption
+\usepackage{array,booktabs}
+\usepackage{colortbl}
+\usepackage{afterpage}  %% 図表を強制的に次のページに送る
+
+%% その他
+\usepackage{cases}
+\usepackage[notrig]{physics}
+\usepackage{ascmac}
+\usepackage{varwidth}
+
+\allowdisplaybreaks[2]%数式のページのまたぎやすさを決める
+%% ページ番号の設定
+% \pagestyle{headings}
+% \pagestyle{empty}
+
+%% マージンの設定
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  total={170mm,257mm},
+  left=5mm,
+  top=5mm,
+  bottom=3mm
+  % margin = 3mm
+}
+
+%数式に節番号を付加する 始まり
+\makeatletter
+\renewcommand{\theequation}{%
+  \thesection.\arabic{equation}}
+\@addtoreset{equation}{section}
+\makeatother
+
+%% Feynman Slash
+\newcommand{\Slash}[1]{{\ooalign{\hfil/\hfil\crcr$#1$}}}
+
+%% 相互参照としおり
+\usepackage[dvipdfmx,
+bookmarks=true, bookmarksnumbered=true, %
+pdftitle={$1}, % タイトル
+pdfsubject={},           % サブタイトル
+pdfauthor={Hayato Aoi},  % 著者
+pdfkeywords={physics},   % キーワード
+]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+  bookmarksnumbered=true,
+  bookmarksopen=true,
+  pdfborder={0 0 0},
+}
+
+%% citation の表示の変更
+%% hyperref の後に読み込む
+\usepackage{cite}  
+
+\begin{document}
+
+%% タイトル, 作者, 年月日
+\title{${1:title}}
+\author{Hayato Aoi}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+  ここに概要を記す.
+\end{abstract}
+
+\setcounter{tocdepth}{3}
+\tableofcontents 
+
+\section{Introduction}
+\label{sec:introduction}
+
+物理の研究ノートのテンプレート.
+数式のための環境が整備されている.
+また, デフォルトで左側と上下のマージンを極端に狭くしてある.
+これは, 長い数式をなるべく行を変えないように表示させるためである.
+そのためページ番号が表示されないようになっているが, 実用上あまり問題にはならない.
+
+
+\section{参考文献}
+\label{sec:bib}
+
+必ず参考にした文献, URI を載せる.
+ノートなので, 論文を bibtex 形式で citation する必要はなく, 以下のように URI を貼り付けるだけでもよい.
+\begin{itemize}
+\item \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.031501}{Phys. Rev. D 98, 031501(R) (2018) - Thermomagnetic evolution of the QCD strong coupling}
+\end{itemize}
+
+\appendix
+\renewcommand{\theequation}{A.\arabic{equation} }
+\setcounter{equation}{0}
+
+\section{よく使う数式}
+\label{sec:freq-eq}
+期待値
+\begin{align}
+  \expval{A}
+\end{align}
+
+行列
+%\begin{align}
+%  \begin{pmatrix}
+%    1 & 0 & 0 & 0 \\\\
+%    0 & 1 & 0 & 0 \\\\
+%    0 & 0 & 1 & 0 \\\\
+%    0 & 0 & 0 & 1
+%  \end{pmatrix}
+%\end{align}
+\end{document}

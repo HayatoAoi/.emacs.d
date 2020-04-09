@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: doxy_function
+# key: doxy_fn
+# --
+/*! ${1:@fn}
+ *  @brief   ${2:description}
+ *
+ *
+ *
+ *  @param[out]      var1     var1_des
+ *  @param[in]       var2     var2_des
+ *  @param[in,out]   var3     var3_des
+ *  @return          return
+ *  @pre             pre
+ *  @post            post
+ *  @sa              sa_list
+ */

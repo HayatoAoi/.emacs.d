@@ -1,0 +1,40 @@
+# -*- mode: snippet -*-
+# name: c_with_gsl
+# key: c_with_gsl_
+# --
+### Makefile for C programs with GSL
+## program files and object files
+PROGRAMS = ${1:program-name}
+
+#OBJS = 
+
+## Re-definition of defined macros
+CC = gcc
+CFLAGS = -Wall -O2
+GSLFLAGS =  -lgsl -lgslcblas
+
+## サフィックスルール適用対象の拡張子の定義
+#.SUFFIXES: .c .o
+
+## all
+.PHONY: all
+all: $(PROGRAMS)
+
+## プライマリターゲット
+%: %.c
+$2#	$(CC) $(CFLAGS) -o $@ $< $(GSLFLAGS) -lm
+
+
+# ヘッダファイルの依存関係
+#main.o: str.h
+
+
+## サフィックスルール
+#.c.o:
+#	$(CC) $(CFLAGS) -c $< -lm
+
+# ファイル削除用ターゲット
+.PHONY: clean
+clean:
+#	$(RM) $(PROGRAMS) *~
+	

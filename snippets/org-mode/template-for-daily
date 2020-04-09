@@ -1,0 +1,81 @@
+# -*- mode: snippet -*-
+# name: template-for-daily
+# key: tlog_
+# --
+#+TITLE: `(format-time-string "%Y年%m月%d日\(%a\)のログ" (current-time))`	
+#+DATE:  `(format-time-string "<%Y-%m-%d %a>" (current-time))`
+:SETTINGS:
+#+DRAWERS: SETTINGS
+#+AUTHOR: Hayato Aoi
+#+EMAIL: 1216602@ed.tus.ac.jp
+#+DESCRIPTION: `(format-time-string "%Y-%m-%d \(%a\) のログ" (current-time))`
+
+#+CREATOR: Emacs 25.1.1 (org-mode 8.2.10)
+#+LANGUAGE: ja
+#+SELECT_TAGS:   export
+# #+EXCLUDE_TAGS:  noexport
+# #+BIND: variable value
+
+#+OPTIONS: ':t  *:t  -:t  ::t  <:t  \n:nil  ^:nil 
+#+OPTIONS: arch:nil  author:nil  broken-links:t  creator:nil  d:nil
+#+OPTIONS: date:nil  e:nil  email:nil  f:t  H:3 inline:t num:nil  p:t  
+#+OPTIONS: timestamp:t tasks:t tags:t title:t  toc:nil  todo:t  |:t tex:dvisvgm
+# #+OPTIONS: pri:nil prop:t stat:nil  c:t
+
+# #+ARCHIVE:
+# #+CATEGORY:
+# #+COLUMNS:
+# #+CONSTANTS:
+#+LINK: daily-home file:/home/hayato/Dropbox/daily_log/
+# #+PRIORITIES:
+# #+PROPERTY:
+# #+SETUPFILE: filename
+# #+STARTUP:
+# #+TAGS:
+# #+TBLFM:
+# #+TODO:
+
+# #+HTML_DOCTYPE: HTML5
+# #+HTML_CONTAINER:
+# #+HTML_LINK_HOME:
+# #+HTML_MATHJAX:
+# #+KEYWORDS:
+# #+LATEX_HEADER:
+
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-common-daily.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-toc-right-daily.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.ed.tus.ac.jp/1216602/css/org-toc-float-daily.css">
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../css/org-common-daily.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../css/org-toc-right-daily.css">
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../org-toc-float-daily.css">
+
+# #+INFOJS_OPT: view:showall toc:t tdepth:2 ftoc:nil ltoc:nil mouse:#ffffcc path:http://www.ed.tus.ac.jp/1216602/js/org-info.js
+# #+HTML: <div class="clear"></div>
+:END:      
+  + [[daily-home:thehome-daily.org][HOME]]
+  + [[daily-home:theindex.org][INDEX]]
+  + [[daily-home:thesitemap-daily.org][SITEMAP]]
+  + [[`(format-time-string "daily-home:/%Y/%Y_%m/%Y_%m_%d.org" (- (+ (* (car (current-time)) (expt 2.0 16))(cadr (current-time))) 86400))`][PREV]]
+  + [[`(format-time-string "daily-home:/%Y/%Y_%m/%Y_%m_%d.org" (+ (+ (* (car (current-time)) (expt 2.0 16))(cadr (current-time))) 86400))`][NEXT]]
+#+HTML: <a href="file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.org">このページのorg</a>
+  
+* COMMENT MENU
+  [[file:`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))`.html]]
+
+* TODO やるべきこと
+  $0
+
+* やりたいこと
+
+* 食事
+  + 朝食
+    + 
+  + 昼食
+    + 
+  + 間食
+    + 
+  + 夕食 
+    +
+
+* やったこと
