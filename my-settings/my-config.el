@@ -297,6 +297,49 @@
 
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 
+
+;; 
+;; 名前: major-mode, eshell
+;; 
+(require 'em-glob)
+(setq eshell-hist-ignoredups t)
+(setq eshell-prompt-function
+      (lambda ()
+        (concat 
+         (eshell/pwd)
+         (if (= (user-uid) 0) "\n# " "\n$ ")
+         )))
+(setq eshell-prompt-regexp "^[^#$]*[$#] ")
+;; (key-chord-define-global "es" 'eshell)
+
+(defun eshell-in-command-line-p ()
+  "カーソルがeshellのプロンプトにあるときに真を返す "
+  (<= eshell-last-output-end (point)))
+
+(defadvice eshell-previous-matching-input-from-input (around shellish activate)
+  (if (eshell-in-command-line-p)  ; カーソルがプロンプトにあるとき
+      ad-do-it                    ; コマンドライン履歴を取得
+    (call-interactively 'previous-line))) ;そうでないときはカーソルを上に
+
+(defadvice eshell-next-matching-input-from-input (around shellish activate)
+  (if (eshell-in-command-line-p)  ; カーソルがプロンプトにあるとき
+      ad-do-it                    ; コマンドライン履歴を取得
+    (call-interactively 'next-line))) ;そうでないときはカーソルを下に
+
+(defun eshell-mode-hook--shellish ()
+  (define-key eshell-mode-map "C-p" 'eshell-previous-matching-input-from-input)
+  (define-key eshell-mode-map "C-n" 'eshell-next-matching-input-from-input))
+(add-hook 'eshell-mode-hook 'eshell-mode-hook--shellish)
+
+;; [[http://higepon.hatenablog.com/entry/20070303/1172922429][Eshell(Emacs Shell) で alias を定義する - higepon blog]]
+;; (add-to-list 'eshell-command-aliases-list (list "tm" "xfce4-terminal"))
+
+
+;; (bind-keys :map eshell-mode-map
+;; 	   ("C-p" . eshell-previous-matching-input-from-input)
+;; 	   ("C-n" . eshell-next-matching-input-from-input))
+
+
 (require 'my-org-config)
 
 (provide 'my-config)
