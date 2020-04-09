@@ -53,10 +53,19 @@
 (bind-key* "C-o" 'delete-other-windows)
 (bind-key* "C-t"   'other-window)
 (bind-key* "C-q"   'dabbrev-expand)
+
 (bind-key* "C-M-/"   'undo)
 (bind-key* "C-M-\\"  'redo)
 
+;;
+;; goto-chg
+;; 
+(bind-key "M-/" 'goto-last-change)
+;; (bind-key "M-e" 'goto-last-change)
+(bind-key "M-\\" 'goto-last-change-reverse)
 
+
+(bind-key "C-x c" 'restart-emacs)
 ;;
 ;; recentf
 ;; 
