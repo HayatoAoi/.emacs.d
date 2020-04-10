@@ -4,7 +4,11 @@
 ;; ; load path
 ;; ;
 (add-to-list `load-path "~/.emacs.d/my-settings")
+(add-to-list `load-path "~/.emacs.d/local")
+
 (require 'my-appearance)
+
+(require 'my-local-settings)
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
