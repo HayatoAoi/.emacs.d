@@ -17,6 +17,18 @@
 ;;
 (save-place-mode 1)  
 
+
+;; 
+;; 名前: server start for emacs-client
+;; 説明: Emacsclient を使うための設定.
+;; 備考: 外部アプリケーションからEmacsを起動するときに起動を早くできる.
+;;       今のところFirefox がメイン.
+;; 
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+
 ;; 
 ;; auto insert
 ;; 
@@ -28,6 +40,21 @@
 (define-auto-insert "\\makefile$" "template.makefile")
 (define-auto-insert "\\.tex$" "tex-template.tex")
 (define-auto-insert "\\.org$" "org-template.org")
+
+
+;;
+;; 名前: backup-file
+;; 
+(setq backup-directory-alist '(
+                               ("\\.html$" . "~/.emacs.d/.backup/.htmlhist/")
+                               ("\\.org$" . "~/.emacs.d/.backup/.orghist/")
+			       ("\\.c$" . "~/.emacs.d/.backup/.chist/")
+			       ("\\.h$" . "~/.emacs.d/.backup/.chist/")
+			       ("\\.cpp$" . "~/.emacs.d/.backup/.cpphist/")
+			       ("\\.hpp$" . "~/.emacs.d/.backup/.hpphist/")
+			       ("makefile" . "~/.emacs.d/.backup/.makefilehist/")
+			       ))
+
 
 
 
@@ -66,6 +93,7 @@
 
 
 (bind-key "C-x c" 'restart-emacs)
+
 ;;
 ;; recentf
 ;; 
@@ -340,6 +368,22 @@
 ;; 	   ("C-n" . eshell-next-matching-input-from-input))
 
 
+
+;; 
+;; 名前: popwin
+;; 
+(require 'popwin)
+(setq display-buffer-function 'popwin:display-buffer)
+
+
+
+;;
+;; my-org-config
+;; 
 (require 'my-org-config)
 
+
+;;
+;; provide
+;; 
 (provide 'my-config)

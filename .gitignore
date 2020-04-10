@@ -8,3 +8,4 @@ places
 # directory
 auto-save-list/
 eshell/
+.backup/
