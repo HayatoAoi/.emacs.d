@@ -52,6 +52,8 @@
 			       ("\\.h$" . "~/.emacs.d/.backup/.chist/")
 			       ("\\.cpp$" . "~/.emacs.d/.backup/.cpphist/")
 			       ("\\.hpp$" . "~/.emacs.d/.backup/.hpphist/")
+			       ("\\.gnuplot$" . "~/.emacs.d/.backup/.gnuplothist/")
+			       ("\\.el$" . "~/.emacs.d/.backup/.elisphist/")
 			       ("makefile" . "~/.emacs.d/.backup/.makefilehist/")
 			       ))
 
@@ -176,6 +178,27 @@
 ;; ; 名前: shell-pop
 (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))
 (global-set-key (kbd "C-c s") 'shell-pop)
+
+
+
+;;
+;; bookmark
+;; 
+
+(setq bookmark-save-flag 1)
+(require 'bookmark)
+
+(bind-keys :map bookmark-bmenu-mode-map
+           ("n" . next-line)
+           ("p" . previous-line)
+           ("m" . bookmark-bmenu-this-window)
+	   ("u" . bookmark-bmenu-mark)
+	   ("o" . bookmark-bmenu-unmark)
+           )
+(key-chord-define-global "bn" 'bookmark-set)
+(key-chord-define-global "bv" 'bookmark-bmenu-list)
+
+
 
 
 ;; 
