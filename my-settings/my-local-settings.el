@@ -36,6 +36,10 @@
   (load-theme 'tsdh-dark t)
       )
 
+(when (equal system-name "epson-endeavor")
+  (load-theme 'tsdh-dark t)
+      )
+
 
 ;; (load-theme 'misterioso t)
 ;; (load-theme 'adwaita t)
