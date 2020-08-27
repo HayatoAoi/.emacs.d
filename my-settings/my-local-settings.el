@@ -40,6 +40,13 @@
   (load-theme 'tsdh-dark t)
       )
 
+(when (equal system-name "mypcjsk")
+  (load-theme 'tsdh-dark t)
+    (set-face-attribute 'default nil
+                   :family "Ricty"
+                   :height 120)
+      )
+
 
 ;; (load-theme 'misterioso t)
 ;; (load-theme 'adwaita t)
