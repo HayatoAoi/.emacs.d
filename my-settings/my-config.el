@@ -401,9 +401,60 @@
 
 
 ;;
+;; ddskk
+;; 
+(require 'skk)
+(bind-key* "<zenkaku-hankaku>" 'skk-mode)
+(global-set-key (kbd "C-f")     'skk-mode)
+(add-hook 'skk-mode-hook
+          (lambda ()
+            (interactive)
+            (global-set-key (kbd "C-f")  'skk-kakutei)
+            (setq skk-kutouten-type 'en)))
+(setq isearch-mode-hook nil)
+
+;; [[http://openlab.ring.gr.jp/skk/skk-manual-git/Ci-Shu-noBao-Cun-.html][SKK Manual: 辞書の保存]]  
+;; [[http://openlab.ring.gr.jp/skk/skk-manual-git/She-Ding-huairu.html][SKK Manual: 設定ファイル]]
+(setq skk-user-directory "~/Dropbox/.emacs.d/skk/")
+(setq skk-large-jisyo  "~/Dropbox/.emacs.d/skk/SKK-JISYO.L")
+(setq skk-jisyo        "~/Dropbox/.emacs.d/skk/MY-SKK-JISYO")
+(setq skk-backup-jisyo "~/Dropbox/.emacs.d/skk/MY-SKK-JISYO-BAK")
+(setq skk-record-file "~/Dropbox/.emacs.d/skk/.skk-record")
+
+
+;; completion
+(setq skk-comp-circulate nil)
+(setq skk-try-completion-char 9)
+(setq skk-next-completion-char 14)
+(setq skk-previous-completion-char 16)
+
+
+(custom-set-variables
+ '(skk-kuten-touten-alist
+   (quote
+    ((jp "。" . "、")
+     (en "." . ",")
+     (jp-en "。" . "，")
+     (en-jp "．" . "、")))))
+
+;; dcomp
+(setq skk-dcomp-activate nil);; 
+(setq skk-dcomp-multiple-activate t);; 
+(setq skk-dcomp-multiple 7)
+
+;; candidate
+(setq skk-show-inline nil) ;; 
+
+;; 変換モードでのReturn
+(setq skk-egg-like-newline t)
+
+
+
+;;
 ;; my-org-config
 ;; 
 (require 'my-org-config)
+
 
 
 ;;
