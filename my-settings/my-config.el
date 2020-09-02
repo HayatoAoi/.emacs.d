@@ -449,6 +449,13 @@
 (setq skk-egg-like-newline t)
 
 
+;; 
+;; 名前: keybind, sticky
+;;
+(require 'sticky)
+(use-sticky-key 'henkan sticky-alist:ja)
+
+
 
 ;;
 ;; my-org-config
