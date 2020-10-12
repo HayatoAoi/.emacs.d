@@ -433,7 +433,7 @@
  '(skk-kuten-touten-alist
    (quote
     ((jp "。" . "、")
-     (en "." . ",")
+     (en "。" . "、")
      (jp-en "。" . "，")
      (en-jp "．" . "、")))))
 
