@@ -416,11 +416,11 @@
 
 ;; [[http://openlab.ring.gr.jp/skk/skk-manual-git/Ci-Shu-noBao-Cun-.html][SKK Manual: 辞書の保存]]  
 ;; [[http://openlab.ring.gr.jp/skk/skk-manual-git/She-Ding-huairu.html][SKK Manual: 設定ファイル]]
-(setq skk-user-directory "~/Dropbox/.emacs.d/skk/")
-(setq skk-large-jisyo  "~/Dropbox/.emacs.d/skk/SKK-JISYO.L")
-(setq skk-jisyo        "~/Dropbox/.emacs.d/skk/MY-SKK-JISYO")
-(setq skk-backup-jisyo "~/Dropbox/.emacs.d/skk/MY-SKK-JISYO-BAK")
-(setq skk-record-file "~/Dropbox/.emacs.d/skk/.skk-record")
+;; (setq skk-user-directory "~/.skk/")
+;; (setq skk-large-jisyo  "/usr/share/skk/SKK-JISYO.L")
+;; (setq skk-jisyo        "~/.skk/MY-SKK-JISYO")
+;; (setq skk-backup-jisyo "~/.skk/MY-SKK-JISYO-BAK")
+;; (setq skk-record-file "~/.skk/.skk-record")
 
 
 ;; completion
