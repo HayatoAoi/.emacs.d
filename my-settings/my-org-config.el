@@ -135,7 +135,7 @@
         ("i" "Idea" entry
          (file+headline nil "New Ideas")
          "** %?\n   %i\n   %a\n   %t")))
-(global-set-key (kbd "C-c c") 'org-capture)
+;; (global-set-key (kbd "C-c c") 'org-capture)
 
 
 ;; org-agenda
@@ -820,7 +820,7 @@ Default for SITEMAP-FILENAME is `sitemap.org'."
         ("i" "Idea" entry
          (file+headline nil "New Ideas")
          "** %?\n   %i\n   %a\n   %t")))
-(global-set-key (kbd "C-c c") 'org-capture)
+;; (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; 
 ;; [[https://taipapamotohus.com/post/org-mode_paper_3/][Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化） | A perfect autumn day]]
