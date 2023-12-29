@@ -55,6 +55,13 @@
 			       ("\\.gnuplot$" . "~/.emacs.d/.backup/.gnuplothist/")
 			       ("\\.el$" . "~/.emacs.d/.backup/.elisphist/")
 			       ("makefile" . "~/.emacs.d/.backup/.makefilehist/")
+			       ("\\.rs$" . "~/.emacs.d/.backup/.rusthist/")
+			       ("\\.toml$" . "~/.emacs.d/.backup/.tomlhist/")
+			       (".env" . "~/.emacs.d/.backup/.envhist/")
+			       (".gitignore" . "~/.emacs.d/.backup/.gitignorehist/")
+			       (".sql$" . "~/.emacs.d/.backup/.sqlhist/")
+			       ("Dockerfile" . "~/.emacs.d/.backup/.dockerhist/")
+			       ("docker-compose.yml" . "~/.emacs.d/.backup/.dockerhist/")
 			       ))
 
 
@@ -74,6 +81,7 @@
 (bind-key* "C-M-n"   'forward-paragraph)
 (bind-key* "C-M-b"   'backward-word)
 (bind-key* "C-M-f"   'forward-word)
+;; (bind-key* "C-f" 'forward-char)
 (bind-key* "C-j" 'backward-char)
 (bind-key* "C-M-j" 'backward-word)
 (bind-key* "C-l" 'forward-char)
@@ -81,7 +89,7 @@
 
 (bind-key* "C-o" 'delete-other-windows)
 (bind-key* "C-t"   'other-window)
-(bind-key* "C-q"   'dabbrev-expand)
+;; (bind-key* "C-q"   'dabbrev-expand)
 (bind-key* "<muhenkan>"   'dabbrev-expand)
 
 (bind-key* "C-M-/"   'undo)
@@ -395,9 +403,9 @@
 
 ;; 
 ;; 名前: popwin
-;; 
-(require 'popwin)
-(setq display-buffer-function 'popwin:display-buffer)
+;; なんかおかしいので無効化する
+;; (require 'popwin)
+;; (setq display-buffer-function 'popwin:display-buffer)
 
 
 
@@ -455,8 +463,6 @@
 ;;
 (require 'sticky)
 (use-sticky-key 'henkan sticky-alist:ja)
-
-
 
 ;;
 ;; my-org-config

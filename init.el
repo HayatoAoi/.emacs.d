@@ -6,7 +6,7 @@
 (add-to-list `load-path "~/.emacs.d/my-settings")
 (add-to-list `load-path "~/.emacs.d/local")
 
-(require 'my-appearance)
+;;(require 'my-appearance)
 
 (require 'my-local-settings)
 
@@ -32,10 +32,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(sticky ddskk popwin goto-chg gnuplot-mode yasnippet elscreen auctex viewer dired-subtree dired-filetype-face dired-open undo-tree recentf-ext google-this shell-pop key-combo key-chord restart-emacs bind-key))
+   '(rust-mode sticky ddskk popwin goto-chg gnuplot-mode yasnippet elscreen auctex viewer dired-subtree dired-filetype-face dired-open undo-tree recentf-ext google-this shell-pop key-combo key-chord restart-emacs bind-key))
  '(skk-kuten-touten-alist
    '((jp "。" . "、")
-     (en "." . ",")
+     (en "。" . "、")
      (jp-en "。" . "，")
      (en-jp "．" . "、"))))
 (custom-set-faces

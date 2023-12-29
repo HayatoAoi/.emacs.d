@@ -23,8 +23,8 @@ uplatex,
 \definecolor{myorange}{HTML}{DE940E}
 
 %% theme, navi, header, footer
-\usetheme{CambridgeUS}
-% \usetheme{metropolis}
+% \usetheme{CambridgeUS}
+ \usetheme{metropolis}
 \beamertemplatenavigationsymbolsempty
 \setbeamertemplate{items}[default]
 \setbeamertemplate{headline}{}
@@ -36,13 +36,14 @@ uplatex,
 % \usecolortheme{orchid}
 %% font theme
 \usefonttheme{professionalfonts}
+
 %% Inner theme
 % \useinnertheme{circles}
 %% outertheme
 %\useoutertheme{infolines}
 
 %% structure, alert, example
-\setbeamercolor*{structure}{bg=white,fg=myblue}
+% \setbeamercolor*{structure}{bg=white,fg=myblue}
 
 
 %% frame title
@@ -50,27 +51,38 @@ uplatex,
 \setbeamerfont{frametitle}{size=\large, series=\bfseries} %% \tiny, \large, \Large
 % logo
 
-\definecolor{Myframecolor}{RGB}{220,230,240}
-\setbeamercolor{frametitle}{fg=myblue, bg=Myframecolor}
+\definecolor{Myframecolor}{RGB}{250,250,250}
+\setbeamercolor{frametitle}{fg=black, bg=Myframecolor}
 % \setbeamercolor{block title}{bg=Myframecolor}
 
 
 %% background
-\definecolor{Mybackgroundcolor}{RGB}{255,255,255}
-\setbeamercolor{background canvas}{bg=Mybackgroundcolor}
+% \definecolor{Mybackgroundcolor}{RGB}{255,255,255}
+% \setbeamercolor{background canvas}{bg=Mybackgroundcolor}
 
-%% blocks
-\setbeamertemplate{blocks}[rounded][shadow=false]
+% %% blocks
+% \setbeamertemplate{blocks}[rounded][shadow=false]
 
-%% alert
-\setbeamercolor{block title alerted}{bg=white, fg=myred}
-\setbeamercolor{block body alerted}{bg=white, fg=black}
-  
-%% grid
-% \setbeamertemplate{background}[grid][step=2mm]
+% %% alert
+\setbeamercolor{alerted text}{fg=myred}
+\setbeamercolor{example text}{fg=mygreen}
+% \setbeamercolor{block title alerted}{bg=white, fg=myred}
+% \setbeamercolor{block body alerted}{bg=white, fg=black}
 
 %% margin
-%\setbeamersize{text margin left=5mm,text margin right=5mm}
+\setbeamersize{text margin left=5mm,text margin right=5mm} 
+
+% %% grid
+% \setbeamertemplate{background}[grid][step=2mm]
+
+%% item
+%% [[https://tex.stackovernet.com/ja/q/112116][beamer - 箇条書きの点のスタイル]]
+\setbeamertemplate{itemize items}[square]
+\setbeamertemplate{itemize subitem}{>>}
+% \setbeamertemplate{items}{>>}
+
+% %% margin
+% % \setbeamersize{text margin left=5mm,text margin right=5mm}
 
 %% caption
 \renewcommand{\figurename}{Fig}
@@ -82,8 +94,8 @@ uplatex,
 \usepackage[deluxe]{otf}
 \usepackage[T1]{fontenc}
 %% ゴシック
-\renewcommand{\kanjifamilydefault}{\gtdefault}
 \renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
 %% ローマン
 % \renewcommand{\kanjifamilydefault}{\mcdefault}
 % \renewcommand{\familydefault}{\rmdefault}
@@ -97,6 +109,17 @@ uplatex,
 \usepackage{xmpmulti}
 \usepackage{tcolorbox}
 \usepackage{fancybox}
+
+
+%% tikz
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+%% [[https://www.opt.mist.i.u-tokyo.ac.jp/~tasuku/tikz.html][TikZ — Tasuku Soma's webpage]]
+\newcommand{\highlight}[2][black]{\tikz[baseline=(x.base)]{\node[inner sep=0.3em, rectangle,rounded corners,fill=#1!10, minimum height=0.2cm](x){#2};}}
+\newcommand{\highlightcap}[3][black]{\tikz[baseline=(x.base)]{\node[inner sep=0.1em, rectangle,rounded corners,fill=#1!10](x){#2} node[below of=x, color=#1, node distance=0.3in]{#3};}}
+\newcommand{\caponly}[3][black]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=Myframecolor](x){#2} node[below of=x, color=#1, node distance=0.3in]{#3};}}
+\newcommand{\highlighttext}[2][black]{\tikz[baseline=(x.base)]{\node[inner sep=0.1em, rectangle,rounded corners,fill=#1!10, minimum height=0.2cm](x){#2};}}
 
 %% Feynman diagram
 \usepackage{tikz-feynman}
@@ -138,12 +161,15 @@ uplatex,
   \titlepage
 \end{frame}
 
+
+\begin{frame}\frametitle{はじめに}
+    
+  小話とかトークの概要とか
+\end{frame}
+
 \section{Introduction}
 \label{sec:intro}
 
-\begin{frame}[noframenumbering]
-  \center\huge\insertsection
-\end{frame}
 
 \subsection{Background}
 \label{sec:background}
@@ -209,10 +235,6 @@ uplatex,
 \section{Methods}
 \label{sec:methods}
 
-\begin{frame}[noframenumbering]
-  \center\huge\insertsection
-\end{frame}
-
 \begin{frame}\frametitle{\insertsection}
   研究に用いる手法・定式化について論理的に明快に述べる
   \begin{description}
@@ -234,9 +256,6 @@ uplatex,
 \section{Results}
 \label{sec:results}
 
-\begin{frame}[noframenumbering]
-  \center\huge\insertsection
-\end{frame}
 
 \begin{frame}\frametitle{\insertsection}
   結果を図表を用いて示す.
@@ -266,9 +285,6 @@ uplatex,
 \section{Discussion}
 \label{sec:discussion}
 
-\begin{frame}[noframenumbering]
-  \center\huge\insertsection
-\end{frame}
 
 \begin{frame}\frametitle{\insertsection}
   得られた結果について議論を行う.
@@ -282,14 +298,13 @@ uplatex,
 \end{frame}
 
 
-\section{Summary}
+\section{Summary \& Outlooks}
 \label{sec:summary}
 
-\begin{frame}[noframenumbering]
-  \center\huge\insertsection
-\end{frame}
+\subsection{Summary}
+\label{sec:summary}
 
-\begin{frame}\frametitle{\insertsection}
+\begin{frame}\frametitle{\insertsubsection}
   結論を含めたまとめを行う.
   \begin{itemize}
   \item 研究の目的, 手法, 結果, 議論, 結論を端的にまとめ, このスライドのみで完結しているようにする (論文の Abstract のように書く).
@@ -305,14 +320,10 @@ uplatex,
   
 \end{frame}
 
-\section{Outlooks}
+\subsection{Outlooks}
 \label{sec:outlooks}
 
-\begin{frame}[noframenumbering]
-  \center\huge\insertsection
-\end{frame}
-
-\begin{frame}\frametitle{\insertsection}
+\begin{frame}\frametitle{\insertsubsection}
   今後の研究の見通しについて述べる.
   \begin{itemize}
   \item 同じ手法で別の対象を見る.
@@ -321,16 +332,13 @@ uplatex,
   \end{itemize}
 \end{frame}
 
-\appendix
 
-\begin{frame}[noframenumbering]
-  \center\huge Appendices
-\end{frame}
+\section*{Appendix}
 
-\section{Introduction (Appendix)}
+\subsection*{Introduction (Appendix)}
 \label{sec:intro-appendix}
 
-\begin{frame}[noframenumbering]\frametitle{\insertsection}
+\begin{frame}[noframenumbering]\frametitle{\insertsubsection}
   導入の補足をする.
   \begin{itemize}
   \item 研究の背景の補足. (より正確, より広範に述べる)
@@ -338,10 +346,10 @@ uplatex,
   \end{itemize}
 \end{frame}
 
-\section{Methods (Appendix)}
+\subsection*{Methods (Appendix)}
 \label{sec:methods-appendix}
 
-\begin{frame}[noframenumbering]\frametitle{\insertsection}
+\begin{frame}[noframenumbering]\frametitle{\insertsubsection}
   手法の補足.
   \begin{itemize}
   \item 細かい計算過程.
@@ -350,10 +358,10 @@ uplatex,
   \end{itemize}
 \end{frame}
 
-\section{Results (Appendix)}
+\subsection*{Results (Appendix)}
 \label{sec:results-appendix}
 
-\begin{frame}[noframenumbering]\frametitle{\insertsection}
+\begin{frame}[noframenumbering]\frametitle{\insertsubsection}
   結果の補足.
   \begin{itemize}
   \item 本スライドで示した結果の補足.
@@ -361,10 +369,10 @@ uplatex,
   \end{itemize}
 \end{frame}
 
-\section{Discussion (Appendix)}
+\subsection*{Discussion (Appendix)}
 \label{sec:discuss-appendix}
 
-\begin{frame}[noframenumbering]\frametitle{\insertsection}
+\begin{frame}[noframenumbering]\frametitle{\insertsubsection}
   議論の補足.
   \begin{itemize}
   \item 別アプローチの議論.
@@ -372,10 +380,10 @@ uplatex,
   \end{itemize}
 \end{frame}
 
-\section{Bibliography}
+\subsection*{Bibliography}
 \label{sec:bib}
 
-\begin{frame}[noframenumbering]\frametitle{\insertsection}
+\begin{frame}[noframenumbering]\frametitle{\insertsubsection}
   参考文献のリスト.
 \end{frame}
 
@@ -384,3 +392,4 @@ uplatex,
 \begin{frame}\frametitle{\insertsection}
   空のスライド
 \end{frame}
+
