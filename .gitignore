@@ -6,6 +6,7 @@ kkcrc
 
 # backup files
 *~
+.lsp-session-v*
 
 # directory
 auto-save-list/
